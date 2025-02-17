@@ -1,11 +1,11 @@
 import React from "react";
 import TaskList from "./TaskList";
 
-function CardDetails() {
+function CardDetails({ description, tasks }) {
   return (
     <div className={"Card_Details"}>
-      기능 기반의 화면 묵업 작업
-      <TaskList />
+      {description}
+      <TaskList tasks={tasks} />
     </div>
   );
 }

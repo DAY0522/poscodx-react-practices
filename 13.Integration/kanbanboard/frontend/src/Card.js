@@ -3,11 +3,11 @@ import CardTitle from "./CardTitle";
 import CardDetails from "./CardDetails";
 import { _Card } from "./assets/scss/Card.scss";
 
-function Card() {
+function Card({ no, title, description, tasks }) {
   return (
     <div className={_Card}>
-      <CardTitle />
-      <CardDetails />
+      <CardTitle title={title} />
+      <CardDetails description={description} tasks={tasks} />
     </div>
   );
 }
