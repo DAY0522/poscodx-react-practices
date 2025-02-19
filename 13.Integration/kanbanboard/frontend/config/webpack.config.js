@@ -37,9 +37,17 @@ module.exports = function(env) {
         devServer: {
             host: '0.0.0.0',
             port: 9090,
+            static: {
+                directory: path.resolve('public'),
+                watch: true
+            },
             liveReload: true,
             compress: true,
-            hot: false
-        }    
+            hot: false,
+            proxy: [{
+                context: ['/kanbanboard', '/assets'],
+                target: 'http://localhost:8080'
+            }]
+        }
     };
 }
