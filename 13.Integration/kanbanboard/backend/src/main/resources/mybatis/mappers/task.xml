@@ -5,7 +5,7 @@
 		<![CDATA[	
 			  select no, name, done
 		      	from task
-		       where card_no=#{cardNo}	
+		       where card_no=#{cardNo}
 		  	order by no desc
 	  	]]>	
 	</select>

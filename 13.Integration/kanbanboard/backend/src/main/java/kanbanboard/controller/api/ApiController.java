@@ -44,6 +44,8 @@ public class ApiController {
 	public ResponseEntity<JsonResult<List<Task>>> read(@RequestParam Long cardNo) {
 		List<Task> tasks = taskRepository.findAllByCardNo(cardNo);
 
+		log.info("Request[GET /task] [{}]", tasks);
+
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(JsonResult.success(tasks));

@@ -47,6 +47,7 @@ function CardList() {
                 <h1>To Do</h1>
                 {todoCards?.map((card) => (
                     <Card
+                        key = {card.no}
                         no={card.no}
                         title={card.title}
                         description={card.description}
@@ -58,6 +59,7 @@ function CardList() {
                 <h1>Doing</h1>
                 {doingCards?.map((card) => (
                     <Card
+                        key = {card.no}
                         no={card.no}
                         title={card.title}
                         description={card.description}
@@ -69,6 +71,7 @@ function CardList() {
                 <h1>Done</h1>
                 {doneCards?.map((card) => (
                     <Card
+                        key = {card.no}
                         no={card.no}
                         title={card.title}
                         description={card.description}

@@ -1,10 +1,10 @@
 import React from "react";
 import { _Task, Task_Remove } from "./assets/scss/Task.scss";
 
-function Task({ no, name, done }) {
+function Task({ no, name, done, cardNo}) {
   return (
     <li className={_Task}>
-      <input type="checkbox" no={no} checked={done}></input> {name}
+      <input type="checkbox" no={no} done={done}></input> {name}
       <a href="#" className={Task_Remove}></a>
     </li>
   );
