@@ -6,7 +6,6 @@ import card from "./Card";
 
 function CardList() {
 
-    const [cards, setCards] = useState(null);
     const [todoCards, setTodoCards] = useState(null);
     const [doingCards, setDoingCards] = useState(null);
     const [doneCards, setDoneCards] = useState(null);
@@ -27,7 +26,6 @@ function CardList() {
                 throw new Error(`${response.status} ${jsonResult.message}`);
             }
 
-            setCards(jsonResult.data);
             setTodoCards(jsonResult.data.filter(card => card.status === "ToDo"));
             setDoingCards(jsonResult.data.filter(card => card.status === "Doing"));
             setDoneCards(jsonResult.data.filter(card => card.status === "Done"));

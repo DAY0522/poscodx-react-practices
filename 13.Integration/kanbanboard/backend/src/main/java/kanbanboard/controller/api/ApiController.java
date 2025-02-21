@@ -61,6 +61,8 @@ public class ApiController {
 
 	@PutMapping("/task/{no}")
 	public ResponseEntity<JsonResult<Map<String, Object>>> update(@PathVariable Long no, @RequestParam String done){
+		log.info("Request[PUT /task/{}] [{}]", no, done);
+
 		taskRepository.updateDone(no, done);
 
 		Map<String, Object> task = new HashMap<>();
@@ -74,6 +76,8 @@ public class ApiController {
 
 	@DeleteMapping("/task/{no}")
 	public ResponseEntity<JsonResult<Long>> delete(@PathVariable Long no) {
+		log.info("Request[DELETE /task/{}]", no);
+
 		taskRepository.delete(no);
 
 		return ResponseEntity

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Task_List, Input_Add_Task} from "./assets/scss/TaskList.scss";
 import Task from "./Task";
-import task from "./Task";
+import axios from "axios";
 
 function TaskList({no}) {
 
@@ -55,6 +55,17 @@ function TaskList({no}) {
         }
     }
 
+    const deleteTask = async (no) => {
+        try {
+            const response = await axios.delete(`/kanbanboard/task/${no}`);
+            const jsonResult = response.data;
+
+            setTasks(tasks.filter(e => e.no !== jsonResult.data));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     useEffect(() => {
         fetchTasks();
     }, []);
@@ -68,7 +79,8 @@ function TaskList({no}) {
         <div className={Task_List}>
             <ul>
                 {tasks?.map((task) => (
-                    <Task key={task.no} no={task.no} name={task.name} done={task.done} cardNo={no}/>
+                    <Task key={task.no} no={task.no} name={task.name} done={task.done} cardNo={no}
+                          deleteTask={deleteTask}/>
                 ))}
             </ul>
             <form onSubmit={e => {
